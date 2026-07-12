@@ -7,16 +7,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Lauren Liu's Portfolio</title>
-<meta name="description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<title>Work — Lauren Liu's Portfolio</title>
+<meta name="description" content="Selected projects by Lauren Liu, including PepTrack, WebGL graphics projects, and systems programming work.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lauren Liu's Portfolio">
-<meta property="og:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta property="og:title" content="Work — Lauren Liu's Portfolio">
+<meta property="og:description" content="Selected projects by Lauren Liu, including PepTrack, WebGL graphics projects, and systems programming work.">
 <meta property="og:image" content="https://https://laurenlliu.github.io/social-preview.png">
-<meta property="og:url" content="https://https://laurenlliu.github.io/index.html">
+<meta property="og:url" content="https://https://laurenlliu.github.io/work.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lauren Liu's Portfolio">
-<meta name="twitter:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta name="twitter:title" content="Work — Lauren Liu's Portfolio">
+<meta name="twitter:description" content="Selected projects by Lauren Liu, including PepTrack, WebGL graphics projects, and systems programming work.">
 <meta name="twitter:image" content="https://https://laurenlliu.github.io/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -573,7 +573,7 @@ footer {
     <a class="nav-brand" href="index.html">Lauren Liu</a>
     <div class="nav-links">
       <a href="about.html">about</a>
-      <a href="work.html">work</a>
+      <a href="work.html" class="active">work</a>
       <a href="experience.html">experience</a>
       <a href="extracurriculars.html">extracurriculars</a>
       <a href="skills.html">skills</a>
@@ -584,37 +584,97 @@ footer {
 </nav>
 
 <div class="wrap">
-  <header class="hero">
-    <div class="header-text">
-      <div class="tag">available for full-time &amp; internship roles</div>
-      <h1>Lauren Liu</h1>
-      <p class="lede">Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming. B.S. Computer Science with Honors, Cum Laude.</p>
-      <div class="links">
-        <a href="https://github.com/laurenlliu" target="_blank">github</a>
-        <a href="https://linkedin.com/in/laurenlliu" target="_blank">linkedin</a>
-        <a href="mailto:laurenercs@gmail.com">laurenercs@gmail.com</a>
-        <a href="tel:7147974472" style="white-space: nowrap;">(714) 797-4472</a>
-        <a href="Lauren_Liu_Resume.pdf" target="_blank">resume ↗</a>
+  <div class="page-header">
+    <div class="page-eyebrow">selected work</div>
+    <h1 class="page-title">Projects</h1>
+  </div>
+
+  <main>
+    <div class="work-grid">
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">PepTrack</div>
+          <div class="project-meta">UI dev lead · 5-person team · Fall 2025 – Winter 2026</div>
+        </div>
+        <p class="project-desc">A full-stack iOS nutrition tracking app built with Agile/Scrum methodology. Led UI development across the dashboard, onboarding, goals, profile, and progress views, and built an AI-powered meal suggestion feature that recommends meals based on a user's remaining daily macros.</p>
+        <div class="stack">
+          <span>SwiftUI</span>
+          <span>Firebase</span>
+          <span>Firestore</span>
+          <span>Groq API</span>
+          <span>USDA FDC API</span>
+          <span>MVVM</span>
+        </div>
+        <div class="project-desc">
+          <ul>
+            <li>Integrated Firebase Authentication and Firestore for accounts, food logging, and real-time data sync</li>
+            <li>Built macro tracking, an XP/leveling system, streak tracking, and hydration goal tracking</li>
+          </ul>
+        </div>
+        <div class="log">
+          <div class="log-line"><span class="log-tag">// problem</span><span>LLM occasionally returned malformed JSON, broke the decoder silently</span></div>
+          <div class="log-line"><span class="log-tag">// fix</span><span>tightened the prompt + added do-catch fallback handling in SwiftUI</span></div>
+          <div class="log-line"><span class="log-tag">// learned</span><span>reliability in AI features is a prompt problem and a code problem, not just one or the other</span></div>
+        </div>
+        <a class="project-link" href="https://github.com/laurenlliu/PepTrack" target="_blank">view on GitHub →</a>
+        <a class="project-link" href="https://www.youtube.com/watch?v=f4Ipgw6Or3o" target="_blank">watch demo →</a>
       </div>
-      <div class="explore-links">
-        <a href="about.html">about me →</a>
-        <a href="work.html">see my work →</a>
-        <a href="experience.html">experience →</a>
-        <a href="guestbook.html">sign the guestbook →</a>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">Computer Graphics Projects</div>
+          <div class="project-meta">solo · Winter 2026</div>
+        </div>
+        <p class="project-desc">Built a first-person, Minecraft-style 3D world from scratch in raw WebGL, featuring procedural terrain generation, real-time block placement/destruction, and an interactive NPC mini-game. Implemented a full Phong lighting pipeline in GLSL with dynamic point lights, spotlights, and per-fragment normal visualization. Also developed an interactive Three.js scene combining imported GLB models with custom procedural geometry, multiple light types, a day/night cycle, and a live UI control panel for adjusting lighting and animations in real time.</p>
+        <div class="stack">
+          <span>WebGL</span>
+          <span>Three.js</span>
+          <span>GLSL</span>
+          <span>JavaScript</span>
+        </div>
+        <div class="log">
+          <div class="log-line"><span class="log-tag">// built</span><span>voxel world with procedural terrain, block placement/removal, NPC mini-game</span></div>
+          <div class="log-line"><span class="log-tag">// built</span><span>Phong lighting pipeline — point lights, spotlights, per-fragment normals</span></div>
+          <div class="log-line"><span class="log-tag">// built</span><span>Three.js scene with GLB models, day/night cycle, live UI controls</span></div>
+        </div>
+        <a class="project-link" href="https://laurenlliu.github.io/webgl-graphics-projects/asg3/index.html" target="_blank">view voxel world →</a>
+        <a class="project-link" href="https://laurenlliu.github.io/webgl-graphics-projects/asg4/index.html" target="_blank">view lighting demo →</a>
+        <a class="project-link" href="https://laurenlliu.github.io/webgl-graphics-projects/asg5/index.html" target="_blank">view 3D scene →</a>
       </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">HTTP Server</div>
+          <div class="project-meta">solo · Fall 2025</div>
+        </div>
+        <p class="project-desc">A multithreaded HTTP server built from scratch using POSIX sockets and a thread pool, supporting concurrent connections, GET/POST requests, and static file serving with robust error handling.</p>
+        <div class="stack">
+          <span>C</span>
+          <span>POSIX</span>
+          <span>Sockets</span>
+          <span>Multithreading</span>
+        </div>
+        <a class="project-link" href="https://github.com/laurenlliu" target="_blank">view on GitHub →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">Computer Systems Projects</div>
+          <div class="project-meta">solo · Fall 2023</div>
+        </div>
+        <p class="project-desc">Sorting algorithms, abstract data types (Set, linked list), and a numerical library implemented in C, with manual memory management and Valgrind-verified correctness.</p>
+        <div class="stack">
+          <span>C</span>
+          <span>Unix</span>
+          <span>Valgrind</span>
+          <span>Makefiles</span>
+        </div>
+        <a class="project-link" href="https://github.com/laurenlliu" target="_blank">view on GitHub →</a>
+      </div>
+
     </div>
-    <div class="orb-wrap" aria-hidden="true">
-      <div class="orb"></div>
-      <div class="orb-wire">
-        <div class="ring" style="transform: scaleY(0.32);"></div>
-        <div class="ring" style="transform: scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(30deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(60deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(120deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(150deg) scaleX(0.32);"></div>
-      </div>
-    </div>
-  </header>
+  </main>
 </div>
 
 <footer>

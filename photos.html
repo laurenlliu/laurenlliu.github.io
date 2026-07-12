@@ -7,16 +7,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Lauren Liu's Portfolio</title>
-<meta name="description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<title>Photos — Lauren Liu's Portfolio</title>
+<meta name="description" content="A few photos from Lauren Liu.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lauren Liu's Portfolio">
-<meta property="og:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta property="og:title" content="Photos — Lauren Liu's Portfolio">
+<meta property="og:description" content="A few photos from Lauren Liu.">
 <meta property="og:image" content="https://https://laurenlliu.github.io/social-preview.png">
-<meta property="og:url" content="https://https://laurenlliu.github.io/index.html">
+<meta property="og:url" content="https://https://laurenlliu.github.io/photos.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lauren Liu's Portfolio">
-<meta name="twitter:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta name="twitter:title" content="Photos — Lauren Liu's Portfolio">
+<meta name="twitter:description" content="A few photos from Lauren Liu.">
 <meta name="twitter:image" content="https://https://laurenlliu.github.io/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -577,49 +577,68 @@ footer {
       <a href="experience.html">experience</a>
       <a href="extracurriculars.html">extracurriculars</a>
       <a href="skills.html">skills</a>
-      <a href="photos.html">photos</a>
+      <a href="photos.html" class="active">photos</a>
       <a href="guestbook.html">guestbook</a>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
-  <header class="hero">
-    <div class="header-text">
-      <div class="tag">available for full-time &amp; internship roles</div>
-      <h1>Lauren Liu</h1>
-      <p class="lede">Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming. B.S. Computer Science with Honors, Cum Laude.</p>
-      <div class="links">
-        <a href="https://github.com/laurenlliu" target="_blank">github</a>
-        <a href="https://linkedin.com/in/laurenlliu" target="_blank">linkedin</a>
-        <a href="mailto:laurenercs@gmail.com">laurenercs@gmail.com</a>
-        <a href="tel:7147974472" style="white-space: nowrap;">(714) 797-4472</a>
-        <a href="Lauren_Liu_Resume.pdf" target="_blank">resume ↗</a>
-      </div>
-      <div class="explore-links">
-        <a href="about.html">about me →</a>
-        <a href="work.html">see my work →</a>
-        <a href="experience.html">experience →</a>
-        <a href="guestbook.html">sign the guestbook →</a>
-      </div>
-    </div>
-    <div class="orb-wrap" aria-hidden="true">
-      <div class="orb"></div>
-      <div class="orb-wire">
-        <div class="ring" style="transform: scaleY(0.32);"></div>
-        <div class="ring" style="transform: scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(30deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(60deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(120deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(150deg) scaleX(0.32);"></div>
-      </div>
-    </div>
-  </header>
+  <div class="page-header">
+    <div class="page-eyebrow">photos</div>
+    <h1 class="page-title">A few snapshots</h1>
+  </div>
+
+  <main>
+    <div class="photo-grid" id="photo-grid"></div>
+    <div class="guestbook-empty" id="photo-empty" style="display:none;">no photos yet, add some to the images folder</div>
+  </main>
 </div>
 
 <footer>
   <div class="footer-inner">built by lauren — last updated 2026</div>
 </footer>
+
+<script>
+  // ---- How to add your own photos ----
+  // 1. Put your image files in an "images" folder next to this HTML file
+  //    (create the folder if it doesn't exist yet).
+  // 2. Add a line below for each photo: { src: "images/yourfile.jpg", caption: "whatever you want" }
+  //    caption is optional, leave it out or set it to "" if you don't want one.
+  // 3. Keep file sizes reasonable (a few hundred KB each) so the page loads fast.
+  //    JPG or WEBP are good choices for photos; PNG is fine for graphics.
+
+  const photos = [
+    // { src: "images/graduation.jpg", caption: "UCSC graduation, June 2026" },
+    // { src: "images/webgl-demo.jpg", caption: "Demoing the voxel world project" },
+  ];
+
+  const grid = document.getElementById("photo-grid");
+  const empty = document.getElementById("photo-empty");
+
+  if (photos.length === 0) {
+    empty.style.display = "block";
+  } else {
+    photos.forEach((photo) => {
+      const figure = document.createElement("figure");
+      figure.className = "photo-card";
+
+      const img = document.createElement("img");
+      img.src = photo.src;
+      img.alt = photo.caption || "";
+      img.loading = "lazy";
+      figure.appendChild(img);
+
+      if (photo.caption) {
+        const caption = document.createElement("figcaption");
+        caption.textContent = photo.caption;
+        figure.appendChild(caption);
+      }
+
+      grid.appendChild(figure);
+    });
+  }
+</script>
 
 </body>
 </html>

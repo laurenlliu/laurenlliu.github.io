@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#FBE0EA"/>
+      <stop offset="32%" stop-color="#E8799E"/>
+      <stop offset="68%" stop-color="#C2185B"/>
+      <stop offset="100%" stop-color="#5A1733"/>
+    </radialGradient>
+    <clipPath id="clip">
+      <circle cx="32" cy="32" r="32"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="32" cy="32" r="32" fill="url(#g)"/>
+
+  <g clip-path="url(#clip)" stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.55">
+    <ellipse cx="32" cy="32" rx="32" ry="10"/>
+    <ellipse cx="32" cy="32" rx="10" ry="32"/>
+    <ellipse cx="32" cy="32" rx="10" ry="32" transform="rotate(45 32 32)"/>
+    <ellipse cx="32" cy="32" rx="10" ry="32" transform="rotate(-45 32 32)"/>
+  </g>
+
+  <text x="32" y="41" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle">LL</text>
+</svg>

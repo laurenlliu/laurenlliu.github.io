@@ -7,20 +7,20 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Lauren Liu's Portfolio</title>
-<meta name="description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<title>Guestbook — Lauren Liu's Portfolio</title>
+<meta name="description" content="Leave a note for Lauren Liu.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lauren Liu's Portfolio">
-<meta property="og:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta property="og:title" content="Guestbook — Lauren Liu's Portfolio">
+<meta property="og:description" content="Leave a note for Lauren Liu.">
 <meta property="og:image" content="https://https://laurenlliu.github.io/social-preview.png">
-<meta property="og:url" content="https://https://laurenlliu.github.io/index.html">
+<meta property="og:url" content="https://https://laurenlliu.github.io/guestbook.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lauren Liu's Portfolio">
-<meta name="twitter:description" content="Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming.">
+<meta name="twitter:title" content="Guestbook — Lauren Liu's Portfolio">
+<meta name="twitter:description" content="Leave a note for Lauren Liu.">
 <meta name="twitter:image" content="https://https://laurenlliu.github.io/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #FCE9EF;
@@ -466,32 +466,53 @@ main { padding: 32px 0 80px; }
 .guestbook-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 22px;
   align-content: start;
 }
 
 .guestbook-card {
-  background: var(--surface);
+  background: linear-gradient(180deg, #FFFFFF, #FFFBFC);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 18px;
+  border-radius: 4px;
+  padding: 18px 20px 14px;
   position: relative;
+  box-shadow: 0 10px 22px -12px rgba(43, 22, 32, 0.28);
+  transform: rotate(-1.2deg);
+  transition: transform 0.15s ease;
 }
 
+.guestbook-card:nth-child(even) { transform: rotate(1deg); }
+.guestbook-card:nth-child(3n) { transform: rotate(-0.6deg); }
+.guestbook-card:hover { transform: rotate(0deg); }
+
 .guestbook-card::before {
-  content: '♥';
+  content: '';
   position: absolute;
   top: 12px;
-  right: 14px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: 1.5px dashed var(--accent-2);
+  border-radius: 3px;
+  background: var(--accent-soft);
+}
+
+.guestbook-card::after {
+  content: '♥';
+  position: absolute;
+  top: 19px;
+  right: 21px;
   color: var(--accent-2);
   font-size: 12px;
-  opacity: 0.5;
 }
 
 .guestbook-note {
-  font-size: 14px;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin: 4px 44px 14px 0;
   word-wrap: break-word;
 }
 
@@ -499,6 +520,8 @@ main { padding: 32px 0 80px; }
   font-family: var(--mono);
   font-size: 11px;
   color: var(--ink-faint);
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
 }
 
 .guestbook-empty {
@@ -578,48 +601,166 @@ footer {
       <a href="extracurriculars.html">extracurriculars</a>
       <a href="skills.html">skills</a>
       <a href="photos.html">photos</a>
-      <a href="guestbook.html">guestbook</a>
+      <a href="guestbook.html" class="active">guestbook</a>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
-  <header class="hero">
-    <div class="header-text">
-      <div class="tag">available for full-time &amp; internship roles</div>
-      <h1>Lauren Liu</h1>
-      <p class="lede">Computer Science graduate from UC Santa Cruz with experience across iOS development, computer graphics, and systems programming. B.S. Computer Science with Honors, Cum Laude.</p>
-      <div class="links">
-        <a href="https://github.com/laurenlliu" target="_blank">github</a>
-        <a href="https://linkedin.com/in/laurenlliu" target="_blank">linkedin</a>
-        <a href="mailto:laurenercs@gmail.com">laurenercs@gmail.com</a>
-        <a href="tel:7147974472" style="white-space: nowrap;">(714) 797-4472</a>
-        <a href="Lauren_Liu_Resume.pdf" target="_blank">resume ↗</a>
-      </div>
-      <div class="explore-links">
-        <a href="about.html">about me →</a>
-        <a href="work.html">see my work →</a>
-        <a href="experience.html">experience →</a>
-        <a href="guestbook.html">sign the guestbook →</a>
-      </div>
-    </div>
-    <div class="orb-wrap" aria-hidden="true">
-      <div class="orb"></div>
-      <div class="orb-wire">
-        <div class="ring" style="transform: scaleY(0.32);"></div>
-        <div class="ring" style="transform: scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(30deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(60deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(120deg) scaleX(0.32);"></div>
-        <div class="ring" style="transform: rotate(150deg) scaleX(0.32);"></div>
+  <div class="page-header">
+    <div class="page-eyebrow">guestbook</div>
+    <h1 class="page-title">Leave a note</h1>
+  </div>
+
+  <main>
+    <div class="guestbook-layout">
+      <form class="guestbook-form" id="guestbook-form">
+        <input type="text" id="gb-name" placeholder="your name" maxlength="50" required>
+        <textarea id="gb-message" placeholder="leave a little note..." maxlength="280" required></textarea>
+        <div class="char-count"><span id="gb-count">0</span>/280</div>
+        <button type="submit" class="guestbook-submit" id="gb-submit">sign the guestbook</button>
+        <div class="guestbook-status" id="gb-status"></div>
+      </form>
+
+      <div class="guestbook-grid" id="guestbook-grid">
+        <div class="guestbook-empty">loading notes…</div>
       </div>
     </div>
-  </header>
+  </main>
 </div>
 
 <footer>
   <div class="footer-inner">built by lauren — last updated 2026</div>
 </footer>
+
+<script type="module">
+  // ---- Firebase setup ----
+  // 1. Go to https://console.firebase.google.com, create a project (free "Spark" plan is enough).
+  // 2. In the project, go to Build > Firestore Database > Create database (start in production mode).
+  // 3. In Project settings > General, scroll to "Your apps", add a Web app, and copy the config object below.
+  // 4. In Firestore > Rules, paste the ruleset from the comment at the bottom of this script and Publish.
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getFirestore, collection, addDoc, query, orderBy, limit,
+    onSnapshot, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAqgp0llDm8vCJ3Em7quN8M_yizTbfQmcc",
+    authDomain: "lauren-portfolio-9ac16.firebaseapp.com",
+    projectId: "lauren-portfolio-9ac16",
+    storageBucket: "lauren-portfolio-9ac16.firebasestorage.app",
+    messagingSenderId: "182511718410",
+    appId: "1:182511718410:web:d6c864e03529cb2630cff3"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const notesRef = collection(db, "guestbook");
+
+  const form = document.getElementById("guestbook-form");
+  const nameInput = document.getElementById("gb-name");
+  const messageInput = document.getElementById("gb-message");
+  const charCount = document.getElementById("gb-count");
+  const submitBtn = document.getElementById("gb-submit");
+  const status = document.getElementById("gb-status");
+  const grid = document.getElementById("guestbook-grid");
+
+  messageInput.addEventListener("input", () => {
+    charCount.textContent = messageInput.value.length;
+  });
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function timeAgo(date) {
+    if (!date) return "just now";
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+    if (seconds < 60) return "just now";
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 30) return `${days}d ago`;
+    return date.toLocaleDateString();
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+    if (!name || !message) return;
+
+    submitBtn.disabled = true;
+    status.textContent = "sending...";
+
+    try {
+      await addDoc(notesRef, {
+        name: name.slice(0, 50),
+        message: message.slice(0, 280),
+        createdAt: serverTimestamp()
+      });
+      form.reset();
+      charCount.textContent = "0";
+      status.textContent = "thank you! 🐷";
+      setTimeout(() => { status.textContent = ""; }, 3000);
+    } catch (err) {
+      console.error(err);
+      status.textContent = "something went wrong, try again";
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  const notesQuery = query(notesRef, orderBy("createdAt", "desc"), limit(60));
+  onSnapshot(notesQuery, (snapshot) => {
+    if (snapshot.empty) {
+      grid.innerHTML = '<div class="guestbook-empty">no notes yet, be the first to sign!</div>';
+      return;
+    }
+    grid.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const date = data.createdAt && data.createdAt.toDate ? data.createdAt.toDate() : null;
+      const card = document.createElement("div");
+      card.className = "guestbook-card";
+      card.innerHTML = `
+        <div class="guestbook-note">${escapeHtml(data.message || "")}</div>
+        <div class="guestbook-meta">${escapeHtml(data.name || "anonymous")} · ${timeAgo(date)}</div>
+      `;
+      grid.appendChild(card);
+    });
+  }, (err) => {
+    console.error(err);
+    grid.innerHTML = '<div class="guestbook-empty">couldn\'t load notes right now</div>';
+  });
+
+  /* ---- Firestore security rules ----
+  Paste this into Firestore > Rules and click Publish. It lets anyone read
+  and add notes, but caps field sizes and blocks edits/deletes from the client.
+  Notes show instantly, there is no approval step.
+
+  rules_version = '2';
+  service cloud.firestore {
+    match /databases/{database}/documents {
+      match /guestbook/{noteId} {
+        allow read: if true;
+        allow create: if request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 50
+          && request.resource.data.message is string
+          && request.resource.data.message.size() > 0
+          && request.resource.data.message.size() <= 280;
+        allow update, delete: if false;
+      }
+    }
+  }
+  */
+</script>
 
 </body>
 </html>
