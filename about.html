@@ -264,6 +264,10 @@ main { padding: 32px 0 80px; }
 .about-text p:last-child { margin-bottom: 0; }
 
 /* ---- whack-a-pig ---- */
+.pig-game-wrap {
+  position: relative;
+}
+
 .pig-game-panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -271,6 +275,19 @@ main { padding: 32px 0 80px; }
   padding: 20px;
   position: sticky;
   top: 88px;
+}
+
+.game-hint {
+  display: inline-block;
+  background: #FFFDF7;
+  border: 1px dashed var(--accent-2);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-2);
+  box-shadow: 0 6px 14px -8px rgba(43, 22, 32, 0.3);
+  margin-bottom: 12px;
 }
 
 .game-head {
@@ -423,6 +440,111 @@ main { padding: 32px 0 80px; }
   0% { transform: scale(0.6); }
   60% { transform: scale(1.2); }
   100% { transform: scale(1); }
+}
+
+.leaderboard {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.leaderboard-head {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 4px 0;
+}
+
+.leaderboard-rank {
+  width: 20px;
+  flex-shrink: 0;
+  color: var(--ink-faint);
+}
+
+.leaderboard-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-score {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.leaderboard-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.leaderboard-submit {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px dashed var(--accent-2);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.leaderboard-submit.open { display: flex; }
+
+.leaderboard-submit-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent-2);
+}
+
+.leaderboard-submit input {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+.leaderboard-submit input:focus { outline: none; border-color: var(--accent-2); }
+
+.leaderboard-submit-btn {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #fff;
+  background: var(--accent-2);
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+.leaderboard-submit-btn:hover { opacity: 0.88; }
+.leaderboard-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.leaderboard-submit-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
 }
 
 .game-footer {
@@ -896,12 +1018,14 @@ footer {
   <main>
     <div class="about-layout">
       <div class="about-text">
-        <p>I've always been curious about how things work, which is what pulled me toward computer science in the first place, that and wanting to build things that actually make a difference for people. Outside of coursework, I gravitate toward graphics programming in my free time; there's something satisfying about building a world from scratch, pixel by pixel, light by light.</p>
-        <p>Tutoring has been a constant since I was 14, back when I started answering questions on Brainly. It's turned into one of the most rewarding parts of what I do: there's nothing quite like watching someone finally get something they'd been stuck on. That's carried through UCSC, through Upwork, through every student I've worked with since.</p>
-        <p>When I'm not coding or tutoring, I'm usually volunteering at a local food bank or shelter, at church, or just enjoying the beach. (Also, I've always had a soft spot for <button type="button" class="pig-hover" id="pig-trigger">pigs</button>. And yes, pink is my favorite color, in case the site didn't give it away.)</p>
+        <p>I've always been curious about how things work, which is what pulled me toward computer science in the first place, that and wanting to build things that actually make a difference for people and to see my work come to fruition in real life. That's a big part of why I love iOS development specifically, there's something satisfying about writing code and watching it turn into an app that someone actually holds in their hand and uses every day.</p>
+        <p>I've also had a passion for tutoring ever since I was 14, answering thousands of math questions on Brainly and helping students all over the world understand difficult concepts by breaking them down step by step. The most rewarding part of tutoring for me is watching someone finally get something they've been stuck on. That part of me has carried through my college career and into my daily life, where I regularly volunteer at food drives and homeless shelters to make a difference in my community.</p>
+        <p>When I'm not coding, tutoring, or volunteering, I'm usually enjoying the beach, singing karaoke to my favorite songs, or watching endless videos of <button type="button" class="pig-hover" id="pig-trigger">mini pigs</button>. And yes, pink is my favorite color, in case the site didn't give it away.</p>
       </div>
 
-      <div class="pig-game-panel">
+      <div class="pig-game-wrap">
+        <div class="game-hint">psst, feed the piggy! 🐷🍓</div>
+        <div class="pig-game-panel">
         <div class="game-head">
           <div class="game-title">🍓 catch the strawberries</div>
           <div class="game-stats">
@@ -919,7 +1043,21 @@ footer {
           <div class="game-highscore">high score: <span id="cg-highscore">0</span></div>
         </div>
         <div class="cg-badges" id="cg-badges"></div>
+
+        <div class="leaderboard">
+          <div class="leaderboard-head">🏆 leaderboard</div>
+          <div class="leaderboard-list" id="lb-list">
+            <div class="leaderboard-empty">loading scores...</div>
+          </div>
+          <div class="leaderboard-submit" id="lb-submit">
+            <div class="leaderboard-submit-text" id="lb-submit-text"></div>
+            <input type="text" id="lb-name" placeholder="your name" maxlength="30">
+            <button type="button" class="leaderboard-submit-btn" id="lb-submit-btn">add to leaderboard</button>
+            <div class="leaderboard-submit-status" id="lb-submit-status"></div>
+          </div>
+        </div>
         <div class="game-message" id="cg-message">move your mouse over the field to steer the pig</div>
+      </div>
       </div>
     </div>
   </main>
@@ -1188,6 +1326,8 @@ footer {
 
       startBtn.disabled = false;
       startBtn.textContent = 'play again';
+
+      window.dispatchEvent(new CustomEvent('piggame:over', { detail: { score } }));
     }
 
     startBtn.addEventListener('click', startGame);
@@ -1255,6 +1395,132 @@ footer {
       if (e.target === overlay) closeModal();
     });
   })();
+</script>
+
+<script type="module">
+  // ---- Leaderboard: uses the same Firebase project as the guestbook ----
+  // Requires an extra Firestore security rule for the "pigScores" collection,
+  // see the comment near the bottom of this script.
+  import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getFirestore, collection, addDoc, query, orderBy, limit,
+    onSnapshot, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAqgp0llDm8vCJ3Em7quN8M_yizTbfQmcc",
+    authDomain: "lauren-portfolio-9ac16.firebaseapp.com",
+    projectId: "lauren-portfolio-9ac16",
+    storageBucket: "lauren-portfolio-9ac16.firebasestorage.app",
+    messagingSenderId: "182511718410",
+    appId: "1:182511718410:web:d6c864e03529cb2630cff3"
+  };
+
+  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const scoresRef = collection(db, "pigScores");
+
+  const lbList = document.getElementById('lb-list');
+  const lbSubmit = document.getElementById('lb-submit');
+  const lbSubmitText = document.getElementById('lb-submit-text');
+  const lbNameInput = document.getElementById('lb-name');
+  const lbSubmitBtn = document.getElementById('lb-submit-btn');
+  const lbSubmitStatus = document.getElementById('lb-submit-status');
+
+  const LAST_NAME_KEY = 'lb-last-name';
+  let pendingScore = null;
+
+  const savedName = localStorage.getItem(LAST_NAME_KEY);
+  if (savedName) lbNameInput.value = savedName;
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  window.addEventListener('piggame:over', (e) => {
+    pendingScore = e.detail.score;
+    if (pendingScore <= 0) {
+      lbSubmit.classList.remove('open');
+      return;
+    }
+    lbSubmitText.textContent = `add your score of ${pendingScore} to the leaderboard?`;
+    lbSubmitStatus.textContent = '';
+    lbSubmit.classList.add('open');
+  });
+
+  lbSubmitBtn.addEventListener('click', async () => {
+    const name = lbNameInput.value.trim();
+    if (!name || pendingScore === null) return;
+
+    lbSubmitBtn.disabled = true;
+    lbSubmitStatus.textContent = 'adding...';
+
+    try {
+      await addDoc(scoresRef, {
+        name: name.slice(0, 30),
+        score: pendingScore,
+        createdAt: serverTimestamp()
+      });
+      localStorage.setItem(LAST_NAME_KEY, name);
+      lbSubmitStatus.textContent = 'added! 🐷';
+      setTimeout(() => {
+        lbSubmit.classList.remove('open');
+        pendingScore = null;
+      }, 1200);
+    } catch (err) {
+      console.error(err);
+      lbSubmitStatus.textContent = 'something went wrong, try again';
+    } finally {
+      lbSubmitBtn.disabled = false;
+    }
+  });
+
+  const topScoresQuery = query(scoresRef, orderBy('score', 'desc'), limit(10));
+  onSnapshot(topScoresQuery, (snapshot) => {
+    if (snapshot.empty) {
+      lbList.innerHTML = '<div class="leaderboard-empty">no scores yet, be the first!</div>';
+      return;
+    }
+    const medals = ['🥇', '🥈', '🥉'];
+    lbList.innerHTML = '';
+    let rank = 0;
+    snapshot.forEach((doc) => {
+      rank += 1;
+      const data = doc.data();
+      const row = document.createElement('div');
+      row.className = 'leaderboard-row';
+      const rankLabel = medals[rank - 1] || `${rank}.`;
+      row.innerHTML = `
+        <span class="leaderboard-rank">${rankLabel}</span>
+        <span class="leaderboard-name">${escapeHtml(data.name || 'anonymous')}</span>
+        <span class="leaderboard-score">${data.score}</span>
+      `;
+      lbList.appendChild(row);
+    });
+  }, (err) => {
+    console.error(err);
+    lbList.innerHTML = '<div class="leaderboard-empty">couldn\'t load scores right now</div>';
+  });
+
+  /* ---- Firestore security rules ----
+  Your existing rules (from the guestbook setup) need this second match block
+  added inside the same `service cloud.firestore { match /databases/... }`.
+  Go to Firestore > Rules in the Firebase console and add this alongside
+  the existing "guestbook" rule, then Publish:
+
+  match /pigScores/{scoreId} {
+    allow read: if true;
+    allow create: if request.resource.data.name is string
+      && request.resource.data.name.size() > 0
+      && request.resource.data.name.size() <= 30
+      && request.resource.data.score is number
+      && request.resource.data.score >= 0
+      && request.resource.data.score <= 5000;
+    allow update, delete: if false;
+  }
+  */
 </script>
 
 </body>
