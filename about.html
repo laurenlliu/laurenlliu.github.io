@@ -312,6 +312,9 @@ main { padding: 32px 0 80px; }
   overflow: hidden;
   margin-bottom: 16px;
   cursor: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .cg-pig {
@@ -345,6 +348,8 @@ main { padding: 32px 0 80px; }
   padding: 4px 10px;
   white-space: nowrap;
   pointer-events: none;
+  z-index: 5;
+  will-change: opacity, transform;
   animation: cg-float-up 900ms ease-out forwards;
 }
 
@@ -369,6 +374,8 @@ main { padding: 32px 0 80px; }
   white-space: nowrap;
   box-shadow: 0 10px 20px -8px rgba(194,24,91,0.5);
   pointer-events: none;
+  z-index: 6;
+  will-change: opacity, transform;
   animation: cg-toast-pop 1600ms ease-out forwards;
 }
 
@@ -1063,7 +1070,7 @@ footer {
       area.appendChild(popup);
 
       const pigLeft = parseFloat(pig.style.left) || area.clientWidth / 2;
-      const popupWidth = popup.offsetWidth;
+      const popupWidth = popup.offsetWidth || 90;
       const margin = 8;
       const minLeft = margin;
       const maxLeft = area.clientWidth - popupWidth - margin;
