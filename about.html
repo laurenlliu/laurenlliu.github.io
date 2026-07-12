@@ -598,7 +598,7 @@ main { padding: 32px 0 80px; }
 .pig-hover {
   color: var(--accent-2);
   border-bottom: 1px dotted var(--accent-2);
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text x='0' y='24' font-size='26'>%F0%9F%90%B7</text></svg>") 16 16, auto;
+  cursor: pointer;
   background: none;
   border-left: none;
   border-right: none;
@@ -617,6 +617,7 @@ main { padding: 32px 0 80px; }
   align-items: center;
   justify-content: center;
   padding: 24px;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text x='0' y='24' font-size='26'>%F0%9F%90%B7</text></svg>") 16 16, auto;
 }
 
 .pig-modal-overlay.open { display: flex; }
@@ -665,6 +666,7 @@ main { padding: 32px 0 80px; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 14px;
+  align-items: start;
 }
 
 .pig-modal-card {
@@ -1026,7 +1028,7 @@ footer {
       <div class="about-text">
         <p>I've always been curious about how things work, which is what pulled me toward computer science in the first place, that and wanting to build things that actually make a difference for people and to see my work come to fruition in real life. That's a big part of why I love iOS development specifically, there's something satisfying about writing code and watching it turn into an app that someone actually holds in their hand and uses every day.</p>
         <p>I've also had a passion for tutoring ever since I was 14, answering thousands of math questions on Brainly and helping students all over the world understand difficult concepts by breaking them down step by step. The most rewarding part of tutoring for me is watching someone finally get something they've been stuck on. That part of me has carried through my college career and into my daily life, where I regularly volunteer at food drives and homeless shelters to make a difference in my community.</p>
-        <p>When I'm not coding, tutoring, or volunteering, I'm usually enjoying the beach, singing karaoke to my favorite songs, or watching endless videos of <button type="button" class="pig-hover" id="pig-trigger">mini pigs</button>. And yes, pink is my favorite color, in case the site didn't give it away.</p>
+        <p>When I'm not coding, tutoring, or volunteering, I'm usually enjoying the beach, singing karaoke to my favorite songs, or looking at endless pictures of <button type="button" class="pig-hover" id="pig-trigger">mini pigs</button>. And yes, pink is my favorite color, in case the site didn't give it away.</p>
       </div>
 
       <div class="pig-game-wrap">
@@ -1348,8 +1350,30 @@ footer {
     // 2. Add a line below for each photo, same pattern as the main photos page.
     //    caption is optional.
     const pigPhotos = [
-      // { src: "images/pigs/my-pig-1.jpg", caption: "the cutest one I've seen" },
-      // { src: "images/pigs/my-pig-2.jpg", caption: "" },
+      { src: "images/pigs/pig-favorite.jpg", caption: "my favorite pig photo" },
+      { src: "images/pigs/pig1.jpeg", caption: "", position: "center 30%" },
+      { src: "images/pigs/pig2.jpeg", caption: "", position: "center 75%" },
+      { src: "images/pigs/pig3.jpeg", caption: "" },
+      { src: "images/pigs/pig4.jpeg", caption: "" },
+      { src: "images/pigs/pig5.jpeg", caption: "" },
+      { src: "images/pigs/pig6.jpeg", caption: "" },
+      { src: "images/pigs/pig7.jpeg", caption: "" },
+      { src: "images/pigs/pig8.jpeg", caption: "" },
+      { src: "images/pigs/pig9.jpeg", caption: "" },
+      { src: "images/pigs/pig10.jpeg", caption: "" },
+      { src: "images/pigs/pig11.jpeg", caption: "" },
+      { src: "images/pigs/pig12.jpeg", caption: "" },
+      { src: "images/pigs/pig13.jpg", caption: "" },
+      { src: "images/pigs/pig14.jpg", caption: "" },
+      { src: "images/pigs/pig15.jpg", caption: "" },
+      { src: "images/pigs/pig16.jpg", caption: "" },
+      { src: "images/pigs/pig17.jpeg", caption: "" },
+      { src: "images/pigs/pig18.jpeg", caption: "" },
+      { src: "images/pigs/pig19.jpg", caption: "" },
+      { src: "images/pigs/pig19b.jpeg", caption: "" },
+      { src: "images/pigs/pig20.jpg", caption: "" },
+      { src: "images/pigs/pig21.jpg", caption: "" },
+      { src: "images/pigs/pig21b.jpeg", caption: "" },
     ];
 
     const trigger = document.getElementById('pig-trigger');
@@ -1370,6 +1394,7 @@ footer {
         img.src = photo.src;
         img.alt = photo.caption || 'a pig';
         img.loading = 'lazy';
+        if (photo.position) img.style.objectPosition = photo.position;
         card.appendChild(img);
         if (photo.caption) {
           const cap = document.createElement('figcaption');
