@@ -294,7 +294,7 @@ main { padding: var(--space-8) 0 var(--space-24); }
 /* ---- work ---- */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: var(--space-12) var(--space-12);
 }
 
@@ -411,7 +411,7 @@ main { padding: var(--space-8) 0 var(--space-24); }
 /* ---- skills ---- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: var(--space-8);
 }
 
@@ -493,7 +493,7 @@ main { padding: var(--space-8) 0 var(--space-24); }
 
 .guestbook-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
   gap: var(--space-4);
   align-content: start;
 }
@@ -538,7 +538,7 @@ main { padding: var(--space-8) 0 var(--space-24); }
 /* ---- photos ---- */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: var(--space-6);
 }
 
