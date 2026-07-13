@@ -100,6 +100,22 @@ textarea:focus-visible,
 a, button, input, textarea, [role="button"] { cursor: pointer; }
 input, textarea { cursor: text; }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-2);
+  background: var(--accent-2);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 8px;
+  z-index: 1000;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
 .wrap {
   width: 100%;
   max-width: 1180px;
@@ -1056,11 +1072,13 @@ footer {
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">Lauren Liu</a>
     <div class="nav-links">
-      <a href="about.html" class="active">about</a>
+      <a href="about.html" class="active" aria-current="page">about</a>
       <a href="projects.html">projects</a>
       <a href="experience.html">experience</a>
       <a href="extracurriculars.html">extracurriculars</a>
@@ -1077,7 +1095,7 @@ footer {
     <h1 class="page-title">A bit about me</h1>
   </div>
 
-  <main>
+  <main id="main-content">
     <div class="about-layout">
       <div class="about-text">
         <p>I've always been curious about how things work, which is what pulled me toward computer science in the first place, that and wanting to build things that actually make a difference for people and to see my work come to fruition in real life. That's a big part of why I love iOS development specifically, there's something satisfying about writing code and watching it turn into an app that someone actually holds in their hand and uses every day.</p>

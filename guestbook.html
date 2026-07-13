@@ -95,6 +95,22 @@ textarea:focus-visible,
 a, button, input, textarea, [role="button"] { cursor: pointer; }
 input, textarea { cursor: text; }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-2);
+  background: var(--accent-2);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 8px;
+  z-index: 1000;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
 .wrap {
   width: 100%;
   max-width: 1180px;
@@ -643,6 +659,8 @@ footer {
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">Lauren Liu</a>
@@ -653,7 +671,7 @@ footer {
       <a href="extracurriculars.html">extracurriculars</a>
       <a href="skills.html">skills</a>
       <a href="photos.html">photos</a>
-      <a href="guestbook.html" class="active">guestbook</a>
+      <a href="guestbook.html" class="active" aria-current="page">guestbook</a>
     </div>
   </div>
 </nav>
@@ -664,7 +682,7 @@ footer {
     <h1 class="page-title">Leave a note</h1>
   </div>
 
-  <main>
+  <main id="main-content">
     <div class="guestbook-layout">
       <form class="guestbook-form" id="guestbook-form">
         <input type="text" id="gb-name" placeholder="your name" maxlength="50" required>

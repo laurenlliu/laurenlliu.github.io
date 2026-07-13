@@ -95,6 +95,22 @@ textarea:focus-visible,
 a, button, input, textarea, [role="button"] { cursor: pointer; }
 input, textarea { cursor: text; }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-2);
+  background: var(--accent-2);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 8px;
+  z-index: 1000;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
 .wrap {
   width: 100%;
   max-width: 1180px;
@@ -623,12 +639,14 @@ footer {
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">Lauren Liu</a>
     <div class="nav-links">
       <a href="about.html">about</a>
-      <a href="projects.html" class="active">projects</a>
+      <a href="projects.html" class="active" aria-current="page">projects</a>
       <a href="experience.html">experience</a>
       <a href="extracurriculars.html">extracurriculars</a>
       <a href="skills.html">skills</a>
@@ -644,7 +662,7 @@ footer {
     <h1 class="page-title">Projects</h1>
   </div>
 
-  <main>
+  <main id="main-content">
     <div class="work-grid">
 
       <div class="project">
