@@ -54,6 +54,8 @@
   --space-16: 64px;
   --space-24: 96px;
   --space-32: 128px;
+
+  --transition: 0.15s ease;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -141,7 +143,7 @@ nav {
   color: var(--ink-soft);
   white-space: nowrap;
   border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .nav-links a:hover,
@@ -210,7 +212,7 @@ h1 {
 .links a {
   border-bottom: 1px solid var(--border);
   padding-bottom: var(--space-1);
-  transition: border-color 0.15s, color 0.15s;
+  transition: border-color var(--transition), color var(--transition);
 }
 
 .links a:hover { border-color: var(--accent); color: var(--accent); }
@@ -228,7 +230,7 @@ h1 {
   border: 1px solid var(--border);
   padding: var(--space-2) var(--space-4);
   border-radius: 20px;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
 }
 
 .explore-links a:hover {
@@ -481,7 +483,7 @@ main { padding: var(--space-8) 0 var(--space-24); }
   border-radius: 8px;
   padding: var(--space-3) var(--space-4);
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: opacity var(--transition);
 }
 
 .guestbook-submit:hover { opacity: 0.88; }
@@ -509,12 +511,15 @@ main { padding: var(--space-8) 0 var(--space-24); }
   position: relative;
   box-shadow: 0 10px 22px -12px rgba(43, 22, 32, 0.28);
   transform: rotate(-1.2deg);
-  transition: transform 0.15s ease;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .guestbook-card:nth-child(even) { transform: rotate(1deg); }
 .guestbook-card:nth-child(3n) { transform: rotate(-0.6deg); }
-.guestbook-card:hover { transform: rotate(0deg); }
+.guestbook-card:hover {
+  transform: translateY(-2px) rotate(0deg);
+  box-shadow: 0 14px 28px -12px rgba(43, 22, 32, 0.32);
+}
 
 .guestbook-card::before {
   content: '';
@@ -573,6 +578,12 @@ main { padding: var(--space-8) 0 var(--space-24); }
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.photo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -12px rgba(43, 22, 32, 0.28);
 }
 
 .photo-card img {
