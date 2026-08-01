@@ -626,6 +626,11 @@ footer {
   header.hero { padding: var(--space-16) 0 var(--space-12); flex-direction: column-reverse; align-items: flex-start; }
   .orb-wrap { width: 110px; height: 110px; }
   .project-meta, .exp-date { white-space: normal; }
+
+  .nav-links {
+    mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+  }
 }
 
 /* ---- scroll reveal ---- */
