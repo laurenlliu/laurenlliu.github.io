@@ -104,9 +104,9 @@
 </div>
 
 <div class="pig-modal-overlay" id="pig-modal-overlay">
-  <div class="pig-modal">
+  <div class="pig-modal" role="dialog" aria-modal="true" aria-labelledby="pig-modal-title-el" tabindex="-1">
     <button type="button" class="pig-modal-close" id="pig-modal-close" aria-label="Close">✕</button>
-    <div class="pig-modal-title">my favorite pig photos 🐷</div>
+    <div class="pig-modal-title" id="pig-modal-title-el">my favorite pig photos 🐷</div>
     <div class="pig-modal-grid" id="pig-modal-grid"></div>
   </div>
 </div>
@@ -412,6 +412,8 @@
     const overlay = document.getElementById('pig-modal-overlay');
     const closeBtn = document.getElementById('pig-modal-close');
     const grid = document.getElementById('pig-modal-grid');
+    const modal = overlay.querySelector('.pig-modal');
+    let lastFocused = null;
 
     function renderPigPhotos() {
       grid.innerHTML = '';
@@ -437,19 +439,43 @@
       });
     }
 
+    function getFocusable() {
+      return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    }
+
     function openModal() {
+      lastFocused = document.activeElement;
       renderPigPhotos();
       overlay.classList.add('open');
       document.addEventListener('keydown', onKeydown);
+      closeBtn.focus();
     }
 
     function closeModal() {
       overlay.classList.remove('open');
       document.removeEventListener('keydown', onKeydown);
+      if (lastFocused) lastFocused.focus();
     }
 
     function onKeydown(e) {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      const focusable = getFocusable();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
 
     trigger.addEventListener('click', openModal);
